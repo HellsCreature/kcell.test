@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:127.0.0.1}:${DB_PORT:5435}/${DB_NAME:chat_db}?currentSchema=public&stringtype=unspecified
+    username: ${DB_USERNAME:chat_user}
+    password: ${DB_PASSWORD:q}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    out-of-order: true
+    validate-migration-naming: true
+  kafka:
+    bootstrap-servers: localhost:29092
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - metrics
